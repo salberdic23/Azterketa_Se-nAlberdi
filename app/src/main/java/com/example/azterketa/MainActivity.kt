@@ -39,6 +39,8 @@ fun Azterketa() {
         .fillMaxHeight()
         .background(Color.Cyan)
         .padding(start = 40.dp, end = 40.dp, top = 40.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
         Column(
             modifier = Modifier
