@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -28,17 +29,18 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Azterketa()
+            Azterketa("Hellow Android")
         }
     }
 }
 
 @Composable
-fun Azterketa() {
-    Column(modifier = Modifier
-        .fillMaxHeight()
-        .background(Color.Cyan)
-        .padding(start = 40.dp, end = 40.dp, top = 40.dp),
+fun Azterketa( Texto: String) {
+    Column(
+        modifier = Modifier
+            .fillMaxHeight()
+            .background(Color.Cyan)
+            .padding(start = 40.dp, end = 40.dp, top = 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
@@ -62,7 +64,7 @@ fun Azterketa() {
                         .padding(bottom = 40.dp)
                 ) {
                     Text(
-                        "Hellow Android",
+                        Texto,
                         modifier = Modifier
                             .background(Color.Red)
                     )
@@ -74,15 +76,15 @@ fun Azterketa() {
                     horizontalAlignment = Alignment.End,
                 ) {
                     Text(
-                        "Hellow Android",
+                        Texto,
                         modifier = Modifier.background(Color.Red)
                     )
                     Text(
-                        "Hellow Android",
+                        Texto,
                         modifier = Modifier.background(Color.Red)
                     )
                     Text(
-                        "Hellow Android",
+                        Texto,
                         modifier = Modifier.background(Color.Red)
                     )
                 }
@@ -96,24 +98,79 @@ fun Azterketa() {
                 .padding(40.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text("Hellow Android")
+            Text(Texto)
         }
 
-        Column (
+        Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight()
-                .background(Color.Yellow),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+                .background(Color.Green)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = "Resultado")
-            Text(text = "666")
+            Column(
+                modifier = Modifier
+                    .background(Color.Blue),
+                horizontalAlignment = Alignment.Start
+            ) {
+                Button(onClick = {}, modifier = Modifier.size(60.dp)) {
+                    Text("1")
+                }
+                Button(onClick = {}, modifier = Modifier.size(60.dp)) {
+                    Text("2")
+                }
+                Button(onClick = {}, modifier = Modifier.size(60.dp)) {
+                    Text("3")
+                }
+            }
+            Column(
+                modifier = Modifier
+                    .background(Color.Magenta),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Button(onClick = {}, modifier = Modifier.size(60.dp)) {
+                    Text("4")
+                }
+                Button(onClick = {}, modifier = Modifier.size(60.dp)) {
+                    Text("5")
+                }
+                Button(onClick = {}, modifier = Modifier.size(60.dp)) {
+                    Text("6")
+                }
+            }
+            Column(
+                modifier = Modifier
+                    .background(Color.Black),
+                horizontalAlignment = Alignment.End
+            ) {
+                Button(onClick = {}, modifier = Modifier.size(60.dp)) {
+                    Text("7")
+                }
+                Button(onClick = {}, modifier = Modifier.size(60.dp)) {
+                    Text("8")
+                }
+                Button(onClick = {}, modifier = Modifier.size(60.dp)) {
+                    Text("9")
+                }
+            }
+        }
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .padding(bottom = 40.dp)
+                    .background(Color.Yellow),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(text = "Resultado")
+                Text(text = "666")
+            }
         }
     }
-}
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PreviewAzterketa() {
-    Azterketa()
+    Azterketa("Hellow Android")
 }
